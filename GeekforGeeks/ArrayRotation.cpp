@@ -1,6 +1,6 @@
 // C++ program to rotate an array by 
 // d elements 
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>  
 using namespace std;
 
 /*Function to left Rotate arr[] of
