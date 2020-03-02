@@ -1,95 +1,61 @@
-Comprehensive Python Cheatsheet
-===============================
+Ôªø# Comprehensive Python Cheatsheet
 
-Contents
---------
-**&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
-**&nbsp;&nbsp;&nbsp;** **2. Types:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Type`](#type)**__,__ **[`String`](#string)**__,__ **[`Regular_Exp`](#regex)**__,__ **[`Format`](#format)**__,__ **[`Numbers`](#numbers)**__,__ **[`Combinatorics`](#combinatorics)**__,__ **[`Datetime`](#datetime)**__.__  
-**&nbsp;&nbsp;&nbsp;** **3. Syntax:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Args`](#arguments)**__,__ **[`Inline`](#inline)**__,__ **[`Closure`](#closure)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Types`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Exceptions`](#exceptions)**__.__  
-**&nbsp;&nbsp;&nbsp;** **4. System:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#command-line-arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#path)**__,__ **[`Command_Execution`](#oscommands)**__.__  
-**&nbsp;&nbsp;&nbsp;** **5. Data:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`JSON`](#json)**__,__ **[`Pickle`](#pickle)**__,__ **[`CSV`](#csv)**__,__ **[`SQLite`](#sqlite)**__,__ **[`Bytes`](#bytes)**__,__ **[`Struct`](#struct)**__,__ **[`Array`](#array)**__,__ **[`MemoryView`](#memory-view)**__,__ **[`Deque`](#deque)**__.__  
-**&nbsp;&nbsp;&nbsp;** **6. Advanced:** **&nbsp;&nbsp;&nbsp;**  **[`Threading`](#threading)**__,__ **[`Operator`](#operator)**__,__ **[`Introspection`](#introspection)**__,__ **[`Metaprograming`](#metaprograming)**__,__ **[`Eval`](#eval)**__,__ **[`Coroutine`](#coroutines)**__.__  
-**&nbsp;&nbsp;&nbsp;** **7. Libraries:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Progress_Bar`](#progress-bar)**__,__ **[`Plot`](#plot)**__,__ **[`Table`](#table)**__,__ **[`Curses`](#curses)**__,__ **[`Logging`](#logging)**__,__ **[`Scraping`](#scraping)**__,__ **[`Web`](#web)**__,__ **[`Profile`](#profiling)**__,__  
-**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** **[`NumPy`](#numpy)**__,__ **[`Image`](#image)**__,__ **[`Animation`](#animation)**__,__ **[`Audio`](#audio)**__.__
+# Main
 
-
-Main
-----
-```python
 if __name__ == '__main__':     # Runs main() if file wasn't imported.
     main()
-```
 
+#List
 
-List
-----
-```python
-<list> = <list>[from_inclusive : to_exclusive : ±step_size]
-```
+<list> = <list> # [from_inclusive : to_exclusive : ¬±step_size ] # name the list
 
-```python
-<list>.append(<el>)            # Or: <list> += [<el>]
-<list>.extend(<collection>)    # Or: <list> += <collection>
-```
+<list>.append(<el>)            # Or: <list> += [<el>]              # add at the end of the list
+<list>.extend(<collection>)    # Or: <list> += <collection>        # add more than one element, like list or array 
 
-```python
-<list>.sort()
-<list>.reverse()
-<list> = sorted(<collection>)
-<iter> = reversed(<list>)
-```
+<list>.sort()                   # sorts the list in alphabetic order
+<list>.reverse()                # sorts the list in reverse alphabetic order
+<list> = sorted(<collection>)   # ssorts the list in alphabetic order ( function )
+<iter> = reversed(<list>)       # sorts the list in reverse alphabetic order ( function ) 
 
-```python
-sum_of_elements  = sum(<collection>)
-elementwise_sum  = [sum(pair) for pair in zip(list_a, list_b)]
-sorted_by_second = sorted(<collection>, key=lambda el: el[1])
-sorted_by_both   = sorted(<collection>, key=lambda el: (el[1], el[0]))
-flatter_list     = list(itertools.chain.from_iterable(<list>))
-product_of_elems = functools.reduce(lambda out, x: out * x, <collection>)
+sum_of_elements  = sum(<collection>)                                        # sum of the elements in the array/list
+elementwise_sum  = [sum(pair) for pair in zip(list_a, list_b)]              # 
+sorted_by_second = sorted(<collection>, key=lambda el: el[1])               #
+sorted_by_both   = sorted(<collection>, key=lambda el: (el[1], el[0]))      #
+flatter_list     = list(itertools.chain.from_iterable(<list>))              #
+product_of_elems = functools.reduce(lambda out, x: out * x, <collection>)   #
 list_of_chars    = list(<str>)
-```
-* **Check out module [operator](#operator) for alternative versions of examples.**
 
-```python
-<int> = <list>.count(<el>)     # Returns number of occurrences. Also works on strings.
+* **Check out module [operator]  (#operator) for alternative versions of examples.**
+
+
+<int> = <list>.count(<el>)     # Returns number of occurrences of el. Also works on strings.
 index = <list>.index(<el>)     # Returns index of first occurrence or raises ValueError.
 <list>.insert(index, <el>)     # Inserts item at index and moves the rest to the right.
 <el> = <list>.pop([index])     # Removes and returns item at index or from the end.
 <list>.remove(<el>)            # Removes first occurrence of item or raises ValueError.
 <list>.clear()                 # Removes all items. Also works on dictionary and set.
-```
 
+# Dictionary
 
-Dictionary
-----------
-```python
 <view> = <dict>.keys()                          # Coll. of keys that reflects changes.
 <view> = <dict>.values()                        # Coll. of values that reflects changes.
 <view> = <dict>.items()                         # Coll. of key-value tuples that reflects chgs.
-```
 
-```python
 value  = <dict>.get(key, default=None)          # Returns default if key is missing.
 value  = <dict>.setdefault(key, default=None)   # Returns and writes default if key is missing.
 <dict> = collections.defaultdict(<type>)        # Creates a dict with default value of type.
 <dict> = collections.defaultdict(lambda: 1)     # Creates a dict with default value 1.
-```
 
-```python
 <dict> = dict(<collection>)                     # Creates a dict from coll. of key-value pairs.
 <dict> = dict(zip(keys, values))                # Creates a dict from two collections.
 <dict> = dict.fromkeys(keys [, value])          # Creates a dict from collection of keys.
-```
 
-```python
 <dict>.update(<dict>)                           # Adds items. Replaces ones with matching keys.
 value = <dict>.pop(key)                         # Removes item or raises KeyError.
 {k for k, v in <dict>.items() if v == value}    # Returns set of keys that point to the value.
 {k: v for k, v in <dict>.items() if k in keys}  # Returns a dictionary, filtered by keys.
-```
 
 ### Counter
-```python
 from collections import Counter
 colors = ['blue', 'red', 'blue', 'red', 'blue']
 counter = Counter(colors)
@@ -97,19 +63,12 @@ counter['yellow'] += 1
 Counter({'blue': 3, 'red': 2, 'yellow': 1})
 counter.most_common()[0]
 ('blue', 3)
-```
-
 
 Set
----
-```python
 <set> = set()
-```
 
-```python
 <set>.add(<el>)                                 # Or: <set> |= {<el>}
 <set>.update(<collection>)                      # Or: <set> |= <set>
-```
 
 ```python
 <set>  = <set>.union(<coll.>)                   # Or: <set> | <set>
@@ -167,7 +126,7 @@ Range
 ```python
 <range> = range(to_exclusive)
 <range> = range(from_inclusive, to_exclusive)
-<range> = range(from_inclusive, to_exclusive, ±step_size)
+<range> = range(from_inclusive, to_exclusive, ¬±step_size)
 ```
 
 ```python
@@ -257,7 +216,7 @@ from types import FunctionType, MethodType, LambdaType, GeneratorType
 ```
 
 ### ABC
-**An abstract base class introduces virtual subclasses that donít inherit from it, but are still recognized by isinstance() and issubclass().**
+**An abstract base class introduces virtual subclasses that don‚Äôt inherit from it, but are still recognized by isinstance() and issubclass().**
 
 ```python
 from collections.abc import Sequence, Collection, Iterable
@@ -331,7 +290,7 @@ String
 ### Property Methods
 ```text
 +---------------+----------+----------+----------+----------+----------+
-|               | [ !#$%Ö] | [a-zA-Z] |  [ºΩæ]   |  [≤≥π]   |  [0-9]   |
+|               | [ !#$%‚Ä¶] | [a-zA-Z] |  [¬º¬Ω¬æ]   |  [¬≤¬≥¬π]   |  [0-9]   |
 +---------------+----------+----------+----------+----------+----------+
 | isprintable() |   yes    |   yes    |   yes    |   yes    |   yes    |
 | isalnum()     |          |   yes    |   yes    |   yes    |   yes    |
@@ -340,7 +299,7 @@ String
 | isdecimal()   |          |          |          |          |   yes    |
 +---------------+----------+----------+----------+----------+----------+
 ```
-* **Also: `'isspace()'` checks for `'[ \t\n\r\f\vÖ]'`.**
+* **Also: `'isspace()'` checks for `'[ \t\n\r\f\v‚Ä¶]'`.**
 
 
 Regex
@@ -477,8 +436,8 @@ Numbers
 ### Types
 ```python
 <int>      = int(<float/str/bool>)    # Or: math.floor(<float>)
-<float>    = float(<int/str/bool>)    # Or: <real>e±<int>
-<complex>  = complex(real=0, imag=0)  # Or: <real> ± <real>j
+<float>    = float(<int/str/bool>)    # Or: <real>e¬±<int>
+<complex>  = complex(real=0, imag=0)  # Or: <real> ¬± <real>j
 <Fraction> = fractions.Fraction(numerator=0, denominator=1)
 <Decimal>  = decimal.Decimal(<str/int/float>)
 ```
@@ -490,7 +449,7 @@ Numbers
 ```python
 <num> = pow(<num>, <num>)             # Or: <num> ** <num>
 <num> = abs(<num>)                    # <float> = abs(<complex>)
-<num> = round(<num> [, ±ndigits])     # `round(126, -1) == 130`
+<num> = round(<num> [, ¬±ndigits])     # `round(126, -1) == 130`
 ```
 
 ### Math
@@ -622,7 +581,7 @@ from dateutil.tz import UTC, tzlocal, gettz, resolve_imaginary
 <DTn>    = DT.fromtimestamp(<real>)         # Local time DTn from seconds since Epoch.
 <DTa>    = DT.fromtimestamp(<real>, <tz.>)  # Aware datetime from seconds since Epoch.
 ```
-* **ISO strings come in following forms: `'YYYY-MM-DD'`, `'HH:MM:SS.ffffff[±<offset>]'`, or both separated by an arbitrary character. Offset is formatted as: `'HH:MM'`.**
+* **ISO strings come in following forms: `'YYYY-MM-DD'`, `'HH:MM:SS.ffffff[¬±<offset>]'`, or both separated by an arbitrary character. Offset is formatted as: `'HH:MM'`.**
 * **Epoch on Unix systems is: `'1970-01-01 00:00 UTC'`, `'1970-01-01 01:00 CET'`, ...**
 
 ### Decode
@@ -641,12 +600,12 @@ dt = datetime.strptime('2015-05-14 23:39:00.00 +0200', '%Y-%m-%d %H:%M:%S.%f %z'
 dt.strftime("%A, %dth of %B '%y, %I:%M%p %Z")
 "Thursday, 14th of May '15, 11:39PM UTC+02:00"
 ```
-* **When parsing, `'%z'` also accepts `'±HH:MM'`.**
+* **When parsing, `'%z'` also accepts `'¬±HH:MM'`.**
 * **For abbreviated weekday and month use `'%a'` and `'%b'`.**
 
 ### Arithmetics
 ```python
-<D/DT>   = <D/DT>   ± <TD>                  # Returned datetime can fall into missing hour.
+<D/DT>   = <D/DT>   ¬± <TD>                  # Returned datetime can fall into missing hour.
 <TD>     = <D/DTn>  - <D/DTn>               # Returns the difference, ignoring time jumps.
 <TD>     = <DTa>    - <DTa>                 # Ignores time jumps if they share tzinfo object.
 <TD>     = <DT_UTC> - <DT_UTC>              # Convert DTs to UTC to get the actual delta.
@@ -1407,7 +1366,7 @@ BaseException
       |    +-- IndexError         # Raised when a sequence index is out of range.
       |    +-- KeyError           # Raised when a dictionary key or set element is not found.
       +-- NameError               # Raised when a variable name is not found.
-      +-- OSError                 # Failures such as ìfile not foundî or ìdisk fullî.
+      +-- OSError                 # Failures such as ‚Äúfile not found‚Äù or ‚Äúdisk full‚Äù.
       |    +-- FileNotFoundError  # When a file or directory is requested but doesn't exist.
       +-- RuntimeError            # Raised by errors that don't fall in other categories.
       |    +-- RecursionError     # Raised when the maximum recursion depth is exceeded.
@@ -1544,7 +1503,7 @@ Open
 <file>.seek(0)                      # Moves to the start of the file.
 <file>.seek(offset)                 # Moves 'offset' chars/bytes from the start.
 <file>.seek(0, 2)                   # Moves to the end of the file.
-<bin_file>.seek(±offset, <anchor>)  # Anchor: 0 start, 1 current pos., 2 end.
+<bin_file>.seek(¬±offset, <anchor>)  # Anchor: 0 start, 1 current pos., 2 end.
 ```
 
 ```python
@@ -1935,7 +1894,7 @@ def write_bytes(filename, bytes_obj):
 Struct
 ------
 * **Module that performs conversions between a sequence of numbers and a bytes object.**
-* **Machineís native type sizes and byte order are used by default.**
+* **Machine‚Äôs native type sizes and byte order are used by default.**
 
 ```python
 from struct import pack, unpack, iter_unpack
@@ -2255,7 +2214,7 @@ ValueError: malformed node or string
 
 Coroutines
 ----------
-* **Coroutines have a lot in common with threads, but unlike threads, they only give up control when they call another coroutine and they donít use as much memory.**
+* **Coroutines have a lot in common with threads, but unlike threads, they only give up control when they call another coroutine and they don‚Äôt use as much memory.**
 * **Coroutine definition starts with `'async'` and its call with `'await'`.**
 * **`'asyncio.run(<coroutine>)'` is the main entry point for asynchronous programs.**
 * **Functions wait(), gather() and as_completed() can be used when multiple coroutines need to be started at the same time.**
@@ -2588,7 +2547,7 @@ import numpy as np
 
 ```python
 <array> = np.array(<list>)
-<array> = np.arange(from_inclusive, to_exclusive, ±step_size)
+<array> = np.arange(from_inclusive, to_exclusive, ¬±step_size)
 <array> = np.ones(<shape>)
 <array> = np.random.randint(from_inclusive, to_exclusive, <shape>)
 ```
@@ -2888,13 +2847,13 @@ Synthesizer
 import simpleaudio, math, struct
 from itertools import chain, repeat
 F  = 44100
-P1 = '71?,69,,71?,66,,62?,66,,59?,,,'
-P2 = '71?,73,,74?,73,,74,,71,,73?,71,,73,,69,,71?,69,,71,,67,,71?,,,'
+P1 = '71‚ô™,69,,71‚ô™,66,,62‚ô™,66,,59‚ô™,,,'
+P2 = '71‚ô™,73,,74‚ô™,73,,74,,71,,73‚ô™,71,,73,,69,,71‚ô™,69,,71,,67,,71‚ô™,,,'
 get_pause   = lambda seconds: repeat(0, int(seconds * F))
 sin_f       = lambda i, hz: math.sin(i * 2 * math.pi * hz / F)
 get_wave    = lambda hz, seconds: (sin_f(i, hz) for i in range(int(seconds * F)))
 get_hz      = lambda key: 8.176 * 2 ** (int(key) / 12)
-parse_note  = lambda note: (get_hz(note[:2]), 0.25 if '?' in note else 0.125)
+parse_note  = lambda note: (get_hz(note[:2]), 0.25 if '‚ô™' in note else 0.125)
 get_samples = lambda note: get_wave(*parse_note(note)) if note else get_pause(0.125)
 samples_f   = chain.from_iterable(get_samples(n) for n in f'{P1}{P1}{P2}'.split(','))
 samples_b   = b''.join(struct.pack('<h', int(f * 30000)) for f in samples_f)
