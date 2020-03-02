@@ -1,13 +1,14 @@
 // C++ program to rotate an array by 
 // d elements 
-#include <bits/stdc++.h>  
-using namespace std;
+#include <bits/stdc++.h>   // #include <bits/stdc++.h> 
+using namespace std;  // Here the std is an abbreviation for standard. This line of code means that we are using all the things defined in this standard namespace.
 
 /*Function to left Rotate arr[] of
 size n by 1*/
-void leftRotatebyOne(int arr[], int n)
+// void: returns nothing. 
+void leftRotatebyOne(int arr[], int n) 
 {
-	int temp = arr[0], i;
+	int temp = arr[0], i;  // defines temp as int, then 
 	for (i = 0; i < n - 1; i++)
 		arr[i] = arr[i + 1];
 
