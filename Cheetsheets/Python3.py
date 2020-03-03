@@ -16,9 +16,15 @@ if __name__ == '__main__':     # Runs main() if file wasn't imported.
 <list>.reverse()                # sorts the list in reverse alphabetic order
 <list> = sorted(<collection>)   # ssorts the list in alphabetic order ( function )
 <iter> = reversed(<list>)       # sorts the list in reverse alphabetic order ( function ) 
+<list> = list.append
+<list> = list.insert(pos, el)   # insert element in list and position pos
+<list> = list.pop()             # pop the last element of the list
+
+
+
 
 sum_of_elements  = sum(<collection>)                                        # sum of the elements in the array/list
-elementwise_sum  = [sum(pair) for pair in zip(list_a, list_b)]              # 
+elementwise_sum  = [sum(pair) for pair in zip(list_a, list_b)]              #  
 sorted_by_second = sorted(<collection>, key=lambda el: el[1])               #
 sorted_by_both   = sorted(<collection>, key=lambda el: (el[1], el[0]))      #
 flatter_list     = list(itertools.chain.from_iterable(<list>))              #
@@ -56,9 +62,9 @@ value = <dict>.pop(key)                         # Removes item or raises KeyErro
 {k: v for k, v in <dict>.items() if k in keys}  # Returns a dictionary, filtered by keys.
 
 ### Counter
-from collections import Counter
-colors = ['blue', 'red', 'blue', 'red', 'blue']
-counter = Counter(colors)
+from collections import Counter                     # A Counter is a container that keeps track of how many times equivalent values are added.
+colors = ['blue', 'red', 'blue', 'red', 'blue']     # colors is an array
+counter = Counter(colors)                           # fun
 counter['yellow'] += 1
 Counter({'blue': 3, 'red': 2, 'yellow': 1})
 counter.most_common()[0]
@@ -93,19 +99,41 @@ Set
 ```
 
 
-Tuple
------
-**Tuple is an immutable and hashable list.**
-```python
+# Tuple
+
+# Tuple is an immutable and hashable list.**
+# Helpful when you want to preserve and protect the data, but have the output flexibility of a list.
 <tuple> = ()
 <tuple> = (<el>, )
 <tuple> = (<el_1>, <el_2> [, ...])
-```
+
+ # EX: 
+t = 12345, 54321, 'hello!'
+t[0]
+12345
+t
+(12345, 54321, 'hello!')
+
+# tuples can be nested 
+u = t, (1, 2, 3, 4, 5)
+u
+((12345, 54321, 'hello!'), (1, 2, 3, 4, 5))#Tuple packing
+t = 12345, 54321, 'hello!'
+t
+(12345, 54321, 'hello!')
+x, y, z = t
+x
+12345
+y
+54321
+z
+'hello!'
+
+
 
 ### Named Tuple
-**Tuple's subclass with named elements.**
+# Tuple's subclass with named elements.**
 
-```python
 from collections import namedtuple
 Point = namedtuple('Point', 'x y')
 p = Point(1, y=2)
@@ -136,11 +164,10 @@ to_exclusive   = <range>.stop
 
 
 Enumerate
----------
-```python
+
 for i, el in enumerate(<collection> [, i_start]):
-    ...
-```
+for item in items:          \                       # for loop, it shows alls 'item' in the array/list 'items'
+    
 
 
 Iterator
@@ -1773,7 +1800,6 @@ import csv
 def read_csv_file(filename):
     with open(filename, encoding='utf-8', newline='') as file:
         return list(csv.reader(file))
-```
 
 ### Write Rows to CSV File
 ```python
@@ -2893,3 +2919,8 @@ if __name__ == '__main__':
     main()
 
 ```
+
+# ==================== RULES learnt ======================================
+#
+# 1. you put : only after if, for, defining function and ...
+# 2. S
