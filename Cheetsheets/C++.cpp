@@ -1,15 +1,23 @@
-// Comment to end of line
+﻿// Comment to end of line
 /* Multi-line comment */
 #include  <stdio.h>         // Insert standard header file
-#include "myfile.h"         // Insert file in current directory
-#define X some text         // Replace X with some text
+#include "myfile.h"         // Insert file in current directory. but ﬁrst the current directory is searched for filename then those indicated with the option -Idir, then the system directories.
+#include <filename>         // Includes the content of filename. The ﬁle is searched ﬁst in the directories possibly indicated with the option -Idirname, then in the system directories (like /usr/include). 
+#define X some text         // Replace X with some text. MACRO 
 #define F(a,b) a+b          // Replace F(1,2) with 1+2
 #define X \
  some text                  // Multiline definition
 #undef X                    // Remove definition
+#define VAR=nn              // It assigns value nn to the (macro variable) VAR. nn is interpreted as an alphanumeric string. 
 #if defined(X)              // Conditional compilation (#ifdef X)
 #else                       // Optional (#ifndef X or #if !defined(X))
 #endif                      // Required after #if, #ifdef
+// or
+#ifdef VAR                  // If VAR is undeﬁned code block is ignored. Otherwise, it is output to the preprocessed source.
+code block                  // the same thing goes for #ifndef         
+#endif                      // If VAR is deﬁned code block is ignored. Otherwise, it is output to the preprocessed source.
+
+// Header Rule
 
 
 // ## Literals
