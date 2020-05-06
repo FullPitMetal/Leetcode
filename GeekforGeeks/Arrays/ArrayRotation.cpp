@@ -13,7 +13,7 @@ void leftRotatebyOne(int arr[], int n)
 		arr[i] = arr[i + 1];   // move the element 1 to the left
 
 	arr[i] = temp;
-}
+},
 
 /*Function to left rotate arr[] of size n by d*/
 void leftRotate(int arr[], int d, int n)
