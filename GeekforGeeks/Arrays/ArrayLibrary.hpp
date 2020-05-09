@@ -17,17 +17,19 @@ void leftRotatebyOne(auto arr[]) {
 	arr[i] = temp; 
 } 
 
-/*Function to left rotate arr[] by d positions*/
+
+/*Function to left rotate arr[] by d positions -- Moves all elements by pos positions to teh right*/
 void leftRotate(auto arr[], int d) 
 { 
 	for (int i = 0; i < d; i++) 
 		leftRotatebyOne(arr); 
 } 
 
+
 /* utility function to print an array */
 void printArray(auto arr[]) 
 {   
-    auto len = sizeof(arr);
+    int len = sizeof(arr);
 	for (int i = 0; i < len; i++) 
 		cout << arr[i] << " "; 
 } 
@@ -43,4 +45,17 @@ int main()
 	printArray(arr, n); 
 
 	return 0; 
+} 
+
+/*Function to reverse arr[] from index start to end*/
+/* Take Divide the array from start pos to end pos. Switches extreme points and closes the gap */
+void rvereseArray(int arr[], int start, int end) // Time Complexity O(n): Space Complexity O(1)
+{ 
+    while (start < end) { 
+        int temp = arr[start];  
+        arr[start] = arr[end]; 
+        arr[end] = temp; 
+        start++; 
+        end--; 
+    } 
 } 
