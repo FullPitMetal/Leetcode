@@ -59,3 +59,32 @@ void rvereseArray(int arr[], int start, int end) // Time Complexity O(n): Space 
         end--; 
     } 
 } 
+
+/* Given an array, only rotation operation is allowed on array. We can rotate the array as many times as we want. Return the maximum possbile of summation of i*arr[i]. */
+auto rotatesum(auto arr[]) {
+	int len=sizeof(arr);
+	//max Find array sum and i*arr[i] with no rotation 
+    int arrSum = 0;  // Stores sum of arr[i] 
+    int currVal = 0;  // Stores sum of i*arr[i] 
+    for (int i=0; i<len; i++) 
+    { 
+        arrSum = arrSum + arr[i]; 
+        currVal = currVal+(i*arr[i]); 
+    } 
+  
+    // Initialize result as 0 rotation sum 
+    int maxVal = currVal; 
+  
+    // Try all rotations one by one and find 
+    // the maximum rotation sum. 
+    for (int j=1; j<len; j++) 
+    { 
+        currVal = currVal + arrSum-len*arr[len-j]; 
+        if (currVal > maxVal) 
+            maxVal = currVal; 
+    } 
+  
+    // Return result 
+    return maxVal; 
+
+}
